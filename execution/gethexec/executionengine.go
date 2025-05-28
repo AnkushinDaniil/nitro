@@ -1150,3 +1150,9 @@ func (s *ExecutionEngine) TriggerMaintenance(capLimit uint64) {
 		}
 	})
 }
+
+func (s *ExecutionEngine) MaintenanceStatus() *execution.MaintenanceStatus {
+	return &execution.MaintenanceStatus{
+		IsRunning: s.runningMaintenance.Load(),
+	}
+}
